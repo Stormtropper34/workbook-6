@@ -1,4 +1,4 @@
-package com.pluralsight.streams;
+package com.pluralsight.streams.model;
 
 public class Person {
     private String firstName;
@@ -31,4 +31,10 @@ public class Person {
         sb.append('}');
         return sb.toString();
     }
-}
+
+//    @Override
+//    public int compareTo(Person other) {
+//        return Integer.compare(this.age, other.age);
+//
+//    }
+    }

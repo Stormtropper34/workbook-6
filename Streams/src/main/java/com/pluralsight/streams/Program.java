@@ -1,6 +1,9 @@
 package com.pluralsight.streams;
 
+import com.pluralsight.streams.model.Person;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Program {
@@ -11,15 +14,35 @@ public class Program {
         List<Person> matchingPeople = getPeopleByLastName(people, lastName);
         printPeople(matchingPeople);
 
+        double avergaeAge = getAvergaeAge(people);
+        System.out.println("Average age: " + avergaeAge);
+
+        List<Integer> ages = getAges(people);
+
+
+        int oldestAge = Collections.max(ages);
+        System.out.println(oldestAge);
+
+        int youngestAge = Collections.min(ages);
+        System.out.println(youngestAge);
+    }
+
+    private static List<Integer> getAges(List<Person> people) {
+        List<Integer> ages = new ArrayList<>();
+        for(Person person : people) {
+            ages.add(person.getAge());
+        }
+        return ages;
+    }
+
+    private static double getAvergaeAge(List<Person> people) {
         int totalAge = 0;
         for (Person person : people) {
             //totalAge = totalAge + person.getAge();
             totalAge += person.getAge();
         }
         double avergaeAge = totalAge / people.size();
-        System.out.println("Average age: " + avergaeAge);
-
-
+        return avergaeAge;
     }
 
     private static void printPeople(List<Person> people) {
